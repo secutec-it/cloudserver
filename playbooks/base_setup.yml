@@ -1,0 +1,12 @@
+---
+- hosts: cloudservers
+  tasks:
+    - name: Include Docker role
+      ansible.builtin.include_role:
+        name: secutec_it.cloudserver.docker
+    - name: Include firewall role
+      ansible.builtin.include_role:
+        name: secutec_it.cloudserver.firewall
+    - name: Include fail2ban role
+      ansible.builtin.include_role:
+        name: secutec_it.cloudserver.fail2ban

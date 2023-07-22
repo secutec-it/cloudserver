@@ -1,2 +1,7 @@
 ---
 # handlers file for docker
+- name: Enable and start Docker
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true

@@ -1,2 +1,23 @@
 ---
 # tasks file for firewall
+- name: Install ufw
+  ansible.builtin.package:
+    name: ufw
+    state: present
+
+- name: Enable and start ufw service
+  ansible.builtin.service:
+    name: ufw
+    state: started
+    enabled: true
+
+- name: Allow OpenSSH
+  community.general.ufw:
+    rule: allow
+    name: OpenSSH
+    state: reloaded
+
+- name: Enable ufw
+  community.general.ufw:
+    state: enabled    
+

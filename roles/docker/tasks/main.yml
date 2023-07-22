@@ -18,7 +18,8 @@
 
 - name: Add docker apt repository
   ansible.builtin.apt_repository:
-    repo: deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+    filename: docker
     state: present
   become: true
 
@@ -32,3 +33,5 @@
       - docker-compose-plugin
     state: present
   become: true
+  notify: Enable and start Docker
+
