@@ -1,2 +1,7 @@
 ---
 # tasks file for traefik
+- name: Pull traefik image via docker
+  community.docker.docker_image:
+    name: traefik:latest
+    source: pull
+
